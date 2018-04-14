@@ -5,7 +5,8 @@
      console.log("存在了")
     process.exit(1)  
 
-    else{
+ }
+ else{
     var fs = require('fs')
     var dirName = process.argv[2] //参数是从第2个开始的，node(0)  demo.js(1)  xxx(2)
  
