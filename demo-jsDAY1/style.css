@@ -1,0 +1,29 @@
+*{
+    margin : 0;
+    padding: 0;
+}
+kbd{
+    border:1px solid red;
+    width: 4em;
+    height: 4em;
+    display: inline-block;
+    text-transform: capitalize;
+    line-height: 4em;
+    position: relative;
+}
+kbd:hover>button{
+    display: inline-block;
+}
+main{
+    text-align: center;
+}
+.box{
+    display: inline-block;
+}
+button{
+    display: none;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
