@@ -1,0 +1,14 @@
+
+.warpper{
+    position: relative;
+    display: inline-block;
+}
+.popover{
+    position: absolute;
+    border: 1px solid red;
+    left:100%;
+    top: 0;
+    white-space: nowrap;
+    padding: 20px;
+    display: none;
+}
