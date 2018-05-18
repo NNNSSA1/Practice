@@ -31,26 +31,38 @@ var server = http.createServer(function(request, response){
 
 
 
-  console.log('HTTP路径为\n' + path)
   if(path == '/'){
+    var string = fs.readFileSync('./index.html','utf-8') //同步读取当前目录下面的index.html  用UTF8格式
+    var amount = fs.readFileSync('./db','utf-8') //同步读取当前目录下面的db文件  用UTF8格式
+    string = string.replace('&&&amount&&&',amount)
     response.setHeader('Content-Type','text/html; charset=utf-8') //响应第二部分声明类型和字符集
-    response.write('<!DOCTYPE>\n<html>'+
-      '<head><link rel = "stylesheet" href="/style.css">'+
-      '</head><body>'+
-      '<h1>你好</h1>'+
-      '<script src="/main.js"></scrpit>'+
-      '</body></html>')
+    response.write(string)
     response.end()//结尾非常重要，否则会一直等待！
   }else if(path =='/style.css'){
     response.setHeader('Content-Type','text/css; charset=utf-8')
-    response.write('body{background-color: #ddd;}h1{color:red;}')//输出css的内容
+    response.write()//输出css的内容
     response.end() 
   }else if(path =='/main.js'){
     response.setHeader('Content-Type','text/javascript; charset=utf-8')
-    response.write('alert("我是js内容")')//输出js的内容
+    response.write()//输出js的内容
     response.end()
-  }else{
+  }else if(path ==='/pay') {     //method.toLocaleUpperCase()  把method变成大写
+    var amount = fs.readFileSync('./db','utf8')
+    var n = parseInt(amount)
+    var newAmount = n -1
+    //
+    fs.writeFileSync('./db',newAmount)
+    response.setHeader('Content-Type','application/javascript')
+    response.statusCode = 200
+    //不能耦合
+    response.write(`
+      ${query.callback}.call(undefined,'success')
+    `)
+    response.end()
+  } else{
     response.statusCode = 404 //当访问其他的网页地址时候响应404
+    response.setHeader('Content-Type','text/html; charset=utf-8')
+    response.write('你这个无法访问')
     response.end()
   }
 
