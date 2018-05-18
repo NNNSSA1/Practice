@@ -38,14 +38,6 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type','text/html; charset=utf-8') //响应第二部分声明类型和字符集
     response.write(string)
     response.end()//结尾非常重要，否则会一直等待！
-  }else if(path =='/style.css'){
-    response.setHeader('Content-Type','text/css; charset=utf-8')
-    response.write()//输出css的内容
-    response.end() 
-  }else if(path =='/main.js'){
-    response.setHeader('Content-Type','text/javascript; charset=utf-8')
-    response.write()//输出js的内容
-    response.end()
   }else if(path ==='/pay') {     //method.toLocaleUpperCase()  把method变成大写
     var amount = fs.readFileSync('./db','utf8')
     var n = parseInt(amount)
@@ -58,6 +50,16 @@ var server = http.createServer(function(request, response){
     response.write(`
       ${query.callback}.call(undefined,'success')
     `)
+    response.end()
+  }
+  //以上是 JONSP 章节
+  else if(path =='/style.css'){
+    response.setHeader('Content-Type','text/css; charset=utf-8')
+    response.write()//输出css的内容
+    response.end() 
+  }else if(path =='/main.js'){
+    response.setHeader('Content-Type','text/javascript; charset=utf-8')
+    response.write()//输出js的内容
     response.end()
   } else{
     response.statusCode = 404 //当访问其他的网页地址时候响应404
