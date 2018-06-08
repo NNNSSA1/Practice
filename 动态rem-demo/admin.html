@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>123</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        var pageWidth = window.innerWidth
+        document.write(`<style>html{font-size:${pageWidth}px}</style>`)
+    </script>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+        <h1>LOGIN</h1>
+        <form>
+            <div class="row">
+                <p> ACCOUNT NUMBER </p> 
+                <input type="text">
+            </div>
+            <div class="password">
+                <p>PASSWORD</p> 
+                <input type="text" value="Please input password" id="password">
+            </div>
+
+            <div class="readMe">
+                <input type="checkbox">
+                <a href="">REMERBER ACCOUNT NUMBER</a>
+            </div>
+            <div class="forgetPassword">
+                 <a href="">FORGOT PASSWORD?</a>
+            </div>
+            <input type="submit" value="LOGIN" class="btn">
+        </form>
+        <p></p>
+    </div>
+    <script>
+        let password = document.querySelector('#password')
+        password.onclick = function(){
+            password.setAttribute('class','active')
+            password.value = ''
+        }
+    </script>
+</body>
+    
+</html>

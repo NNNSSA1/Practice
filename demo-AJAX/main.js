@@ -10,7 +10,9 @@ window.jQuery.ajax = function(options){
     let body = options.body
     let success = function(){}
     let fail = function(){}
-
+    //ES6西沟赋值
+    let {url,method,body,success,fail} = options
+    
     let headers = options.header
     for(let key in headers ){
         value = headers[key]

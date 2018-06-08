@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+            width: 400px;
+            margin: 300px auto ;
+        }
+        main .production>nav {
+            display: inline-block;
+
+        }
+
+        main .production>nav>ol {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        main .production>nav>ol>li {
+            margin-left: 55px;
+            float: left;
+            cursor: pointer;
+        }
+
+        main .production>nav>ol>li:nth-child(1) {
+            margin: 0;
+        }
+
+        main .production-bar {
+            margin: 17px 0 33px 0;
+            height: 5px;
+            background-color: #FFFFFF;
+            border-radius: 2px;
+        }
+
+        main .production-bar>.production-bar-inner {
+            height: 100%;
+            background-color: #e8676b;
+            border-radius: 2px;
+            transition-duration: 0.7s;
+        }
+
+        main .production-bar.state-1>.production-bar-inner {
+            margin-left: 0;
+            width: 30px;
+        }
+
+        main .production-bar.state-2>.production-bar-inner {
+            margin-left: 60px;
+            width: 100px;
+        }
+
+        main .production-bar.state-3>.production-bar-inner {
+            margin-left: 172px;
+            width: 172px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section data-x id="siteProduction" class="production">
+            <nav>
+                <ol class="clearfix">
+                    <li id="productionAll">所有</li>
+                    <li id="productionFrame">框架</li>
+                    <li id="productionProtogenesis">原生Js &amp; 原生CSS</li>
+                </ol>
+                <div id="barCilck" class="production-bar state-1">
+                    <div class="production-bar-inner"></div>
+                </div>
+            </nav>
+            <script>
+                productionAll.onclick = function () {
+                    barCilck.className = "production-bar state-1"
+                }
+                productionFrame.onclick = function () {
+                    barCilck.className = "production-bar state-2"
+                }
+                productionProtogenesis.onclick = function () {
+                    barCilck.className = "production-bar state-3"
+                }
+            </script>
+        </section>
+    </main>
+
+</body>
+
+</html>

@@ -7,8 +7,8 @@ window.jQuery = function(nodesOrSelecotor){
 		}
 		nodes.length = temp.length							//将临时变量的长度传给nodes
     	}else if (nodesOrSelecotor instanceof Node) {		//如果传入的内容是节点
-    		node = {	0:nodeOrSelector,length: 1			//建立一个length为1的伪数组
-
+    		node = {	
+				0:nodeOrSelector,length: 1					//建立一个length为1的伪数组
     		}												//给哈希添加两个新的属性，一个是addClass，另外一个是setText
     	nodes.addClass = function(classes){				
     		classes.forEach((value)=>{					//addClass需要传入一个数组内容，然后遍历这个数组内容的值
